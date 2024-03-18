@@ -4,11 +4,11 @@ pragma solidity ^0.8.20;
 import "./structs/Subnet.sol";
 import "./lib/FvmAddressHelper.sol";
 
-contract NetworkBride {
+contract NetworkBridge {
     SubnetID public subnetID;
     address public dbManager;
 
-    event NetworkBrideRead(CallMsg message, IPCAddress destination);
+    event NetworkBridgeRead(CallMsg message, IPCAddress destination);
 
     constructor(uint64 root, address[] memory route, address _dbManager) {
         subnetID = SubnetID({root: root, route: route});
@@ -29,7 +29,7 @@ contract NetworkBride {
         
         // call TBI
 
-        emit NetworkBrideRead(message, destination);
+        emit NetworkBridgeRead(message, destination);
     }
 
     function _fallback() internal {
